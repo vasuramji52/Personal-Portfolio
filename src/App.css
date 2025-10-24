@@ -1,0 +1,59 @@
+:root {
+  --deep-red: #5E1802;
+  --dark-brown: #423324;
+  --off-white: #E8E9E3;
+  --light-brown: #A78872;
+  --grey-teal: #65716F;
+  --black: #000000;
+  --white: #ffffff;
+
+  --text-color: var(--black);
+  --navbar-bg: var(--deep-red);
+  --navbar-text: var(--off-white);
+  --card-bg: var(--grey-teal);
+  --bg-color: var(--off-white);
+  --sidenav-bg: var(--dark-brown);
+  --accent-color: var(--light-brown);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sections-container {
+  scroll-behavior: smooth;
+}
+
+.section {
+  min-height: 50vh;
+  padding: 100px 40px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

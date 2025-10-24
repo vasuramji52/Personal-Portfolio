@@ -1,0 +1,15 @@
+.animated-section {
+    opacity: 0.2;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animated-section.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0);
+}
+
+.animated-section.fade-out {
+    opacity: 0.2;
+    transform: translateY(20px);
+}
