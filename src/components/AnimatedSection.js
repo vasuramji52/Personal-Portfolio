@@ -1,27 +1,51 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './AnimatedSection.css';
 
-const AnimatedSection = ({ children, id }) => {
-    const sectionRef = useRef();
-    const [visible, setVisible] = useState(false);
+const AnimatedSection = ({ children, id, className = '', style, stagger = false }) => {
+    const sectionRef = useRef(null);
 
     useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+
         const observer = new IntersectionObserver(
-            ([entry]) => setVisible(entry.isIntersecting),
-            { threshold: 0.3 }
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    el.classList.add('fade-in');
+                    el.classList.remove('fade-out');
+
+                    // Stagger children animations
+                    if (stagger) {
+                        const childElements = el.querySelectorAll(':scope > *');
+                        childElements.forEach((child, index) => {
+                            child.style.transitionDelay = `${index * 120}ms`;
+                            child.classList.add('fade-in');
+                        });
+                    }
+                } else {
+                    el.classList.add('fade-out');
+                    el.classList.remove('fade-in');
+
+                    if (stagger) {
+                        const childElements = el.querySelectorAll(':scope > *');
+                        childElements.forEach((child) => {
+                            child.style.transitionDelay = '0ms';
+                            child.classList.remove('fade-in');
+                        });
+                    }
+                }
+            },
+            { threshold: 0.2 }
         );
-        if (sectionRef.current) observer.observe(sectionRef.current);
+
+        observer.observe(el);
         return () => observer.disconnect();
-    }, []);
+    }, [stagger]);
 
     return (
-        <section
-            id={id}
-            ref={sectionRef}
-            className={`animated-section ${visible ? 'fade-in' : 'fade-out'}`}
-        >
+        <div id={id} ref={sectionRef} className={`animated-section ${className}`} style={style}>
             {children}
-        </section>
+        </div>
     );
 };
 

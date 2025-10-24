@@ -1,19 +1,27 @@
 :root {
-  --deep-red: #5E1802;
-  --dark-brown: #423324;
-  --off-white: #E8E9E3;
-  --light-brown: #A78872;
-  --grey-teal: #65716F;
-  --black: #000000;
-  --white: #ffffff;
+  --charcoal: #1F2421;       /* deep neutral background */
+  --slate: #2E3832;          /* navbar & card background */
+  --smoke: #3B4B45;          /* subtle accent background */
 
-  --text-color: var(--black);
-  --navbar-bg: var(--deep-red);
+  /* Accent pops */
+  --teal: #54B6B8;           /* brighter teal for contrast */
+  --teal-hover: #65D1D3;
+  --old-rose: #C77B70;       /* rose accent with warmth */
+  --gold-accent: #E8B25D;    /* optional gold detail for vibrancy */
+
+  /* Neutrals for contrast */
+  --off-white: #F6F5F2;
+  --light-gray: #CFCFCF;
+  --black: #000;
+
+  /* Theming */
+  --text-color: var(--off-white);
+  --navbar-bg: var(--slate);
   --navbar-text: var(--off-white);
-  --card-bg: var(--grey-teal);
-  --bg-color: var(--off-white);
-  --sidenav-bg: var(--dark-brown);
-  --accent-color: var(--light-brown);
+  --card-bg: var(--smoke);
+  --bg-color: var(--charcoal);
+  --sidenav-bg: var(--slate);
+  --accent-color: var(--teal);
 }
 
 body {
@@ -22,6 +30,14 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   scroll-behavior: smooth;
+}
+
+.section:nth-of-type(even) {
+  background-color: var(--slate); 
+}
+
+.section:nth-of-type(odd) {
+  background-color: var(--charcoal);
 }
 
 .app-container {
@@ -42,6 +58,11 @@ body {
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
+  margin: 0;
+}
+
+.section + .section {
+  margin-top: 60px; /* uniform gap between all sections */
 }
 
 /* Animations */

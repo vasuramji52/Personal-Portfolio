@@ -20,6 +20,6 @@
 }
 
 .side-nav a.active {
-    background-color: var(--deep-red);
+    background-color: var(--teal);
     transform: scale(1.5);
 }

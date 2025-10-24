@@ -1,0 +1,36 @@
+.typewriter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--off-white);
+  font-size: 2.05rem;
+}
+
+.typewriter-text {
+  display: inline-block;
+  /* don't reserve a fixed width on the text element itself — that pushed the
+     cursor to the end of the reserved space. Keep nowrap so the text doesn't
+     wrap while typing. If you want to reserve space to reduce layout shift,
+     apply min-width on the wrapper instead. */
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: var(--teal);
+  opacity: 1;
+  transition: opacity 160ms linear;
+}
+
+.typewriter-cursor.blink {
+  opacity: 1;
+  animation: tw-blink 1s steps(1) infinite;
+}
+
+@keyframes tw-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

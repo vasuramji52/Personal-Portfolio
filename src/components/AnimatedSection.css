@@ -1,15 +1,50 @@
 .animated-section {
-    opacity: 0.2;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 420ms cubic-bezier(.2, .9, .2, 1), transform 420ms cubic-bezier(.2, .9, .2, 1);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    /* ensure anchor links position content below fixed navbar */
+    scroll-margin-top: 88px;
 }
 
 .animated-section.fade-in {
     opacity: 1 !important;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    /* apply pop-up animation for sections */
+    animation: popUp 780ms cubic-bezier(.2,.9,.2,1) both;
 }
 
 .animated-section.fade-out {
-    opacity: 0.2;
-    transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Optional: child elements can be initially hidden to allow staggered reveals */
+.animated-section > * {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 360ms ease, transform 360ms ease;
+}
+
+.animated-section.fade-in > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-4px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
