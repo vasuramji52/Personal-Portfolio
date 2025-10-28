@@ -117,7 +117,7 @@ const Projects = () => {
         <section id="projects" className="projects">
             <h2 className="glow-text">Projects</h2>
             <p className="project-intro">
-                Here are a few of my favorite projects — blending design, development, and creativity.
+                Here are a few of my favorite projects — blending design, functionality, and creativity.
             </p>
 
             <div className="projects-grid">
