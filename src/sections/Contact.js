@@ -63,12 +63,6 @@ const Contact = ({ id }) => {
 
                 <div className="contact-details">
                     <div className="contact-card">
-                        <FaPhoneAlt className="contact-icon" />
-                        <h4>Phone</h4>
-                        <div className="contact-info">(412) 706-1468</div>
-                    </div>
-
-                    <div className="contact-card">
                         <FaEnvelope className="contact-icon" />
                         <h4>Email</h4>
                         <div className="contact-info">vasupradha.ramji@gmail.com</div>
