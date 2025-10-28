@@ -1,4 +1,15 @@
 .animated-section {
+    position: relative;
+    /* ensures it flows in normal layout */
+    width: 100%;
+    min-height: 100vh;
+    /* each section fills screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: visible;
+
+    /* existing animation rules */
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 0.45s cubic-bezier(.2, .9, .2, 1),
@@ -6,7 +17,6 @@
     will-change: opacity, transform;
     backface-visibility: hidden;
     scroll-margin-top: 88px;
-    /* keeps anchors below navbar */
 }
 
 /* --- Fade in animation --- */
@@ -32,6 +42,12 @@
 .animated-section.fade-in>* {
     opacity: 1;
     transform: translateY(0);
+}
+
+#experience.animated-section.fade-in {
+    animation: none; /* no scale bounce */
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* --- Pop-up keyframes --- */

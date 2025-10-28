@@ -35,7 +35,7 @@ const AnimatedSection = ({ children, id, className = '', style, stagger = false 
                     }
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.05 }
         );
 
         observer.observe(el);
