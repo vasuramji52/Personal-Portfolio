@@ -190,13 +190,13 @@ const Projects = () => {
 
                         <div className="project-image">
                             <img src={proj.image} alt={`${proj.name} preview`} />
-                            <div className="image-overlay">
+                            {/* <div className="image-overlay">
                                 <span>
                                     {proj.link && proj.link.endsWith('.pdf')
                                         ? 'View PDF'
                                         : 'View Project'}
                                 </span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))}
