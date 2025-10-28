@@ -4,12 +4,14 @@
     opacity: 0.2;
     margin-top: 20px;
     padding-top: 30px;
+    padding-left: clamp(16px, 5vw, 60px);
+    padding-right: clamp(16px, 5vw, 60px);
 }
 
+/* Headings */
 .glow-text {
     color: var(--off-white);
     font-weight: 650;
-    /* responsive sizing: larger on wide screens, smaller on mobile */
     font-size: clamp(1.4rem, 2.6vw, 2.4rem);
     margin: 0 0 0.6rem 0;
 }
@@ -18,9 +20,8 @@ h1.glow-text {
     font-size: clamp(2rem, 5vw, 3.6rem);
 }
 
-/* Slightly smaller for section subtitles */
 h2.glow-text {
-    font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 .fade-in {
@@ -33,6 +34,7 @@ h2.glow-text {
     transform: translateY(20px);
 }
 
+/* Socials */
 .social-buttons {
     display: flex;
     gap: 15px;
@@ -41,6 +43,7 @@ h2.glow-text {
     justify-content: center;
 }
 
+/* Buttons */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -48,9 +51,10 @@ h2.glow-text {
     gap: 8px;
     background: linear-gradient(90deg, var(--teal), var(--old-rose));
     color: var(--charcoal);
-    padding: 10px 20px;
+    padding: clamp(12px, 3vw, 20px) clamp(16px, 5vw, 30px);
     border-radius: 25px;
     font-weight: bold;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
@@ -71,11 +75,12 @@ h2.glow-text {
     display: flex;
 }
 
+/* About section layout */
 .about-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 70px 40px;
+    padding: clamp(50px, 8vw, 100px) clamp(20px, 6vw, 60px);
 }
 
 .about-content {
@@ -85,7 +90,7 @@ h2.glow-text {
     justify-content: space-between;
     max-width: 1100px;
     width: 100%;
-    gap: 40px;
+    gap: clamp(20px, 5vw, 40px);
     margin-top: 40px;
 }
 
@@ -96,16 +101,11 @@ h2.glow-text {
     margin-top: 40px;
 }
 
-.about-text h2 {
-    margin-bottom: 20px;
-}
-
 .about-text p {
-    font-size: 1.25rem;
-    gap: 14px;
-    line-height: 2;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
     color: var(--off-white);
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 /* Image column */
@@ -116,15 +116,15 @@ h2.glow-text {
 }
 
 .about-profile {
-    width: 480px;
-    height: 510px;
+    width: clamp(240px, 50vw, 480px);
+    height: clamp(240px, 50vw, 510px);
     border-radius: 50%;
     border: 3px solid var(--teal);
     box-shadow: 0 0 25px rgba(79, 163, 165, 0.4);
     object-fit: cover;
 }
 
-/* --- FLOATING ANIMATION --- */
+/* Floating animation */
 .floating {
     animation: floatImage 3s ease-in-out infinite;
 }
@@ -141,14 +141,58 @@ h2.glow-text {
     }
 }
 
-/* Responsive adjustments */
+/* 📱 Mobile adjustments */
 @media (max-width: 900px) {
     .about-content {
         flex-direction: column-reverse;
         text-align: center;
+        gap: 24px;
     }
 
     .about-text {
         text-align: center;
+        margin-top: 10px;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-top: 20px;
+    }
+
+    .about-profile {
+        width: 70vw;
+        height: 70vw;
+        max-width: 380px;
+        max-height: 380px;
+    }
+
+    .cta-button {
+        width: 80%;
+        max-width: 280px;
+    }
+
+    .social-buttons {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-profile {
+        width: 85vw;
+        height: 85vw;
+    }
+
+    .glow-text {
+        font-size: 1.4rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        font-size: 0.95rem;
+        padding: 12px 20px;
     }
 }

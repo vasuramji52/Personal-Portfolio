@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 //import SideNav from './components/SideNav';
 import AnimatedSection from './components/AnimatedSection';
-import ScrollProgress from './components/ScrollProgress';
 
 import Home from './sections/Home';
 import Skills from './sections/Skills';
@@ -41,7 +40,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <ScrollProgress />
       <Navbar currentSection={currentSection} />
       <div className="sections-container">
         <AnimatedSection id="home">

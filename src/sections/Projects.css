@@ -3,15 +3,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 100px 20px 200px;
+    padding: clamp(60px, 10vw, 120px) 20px;
     min-height: 100vh;
 }
 
 .project-intro {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     font-weight: 300;
     color: var(--off-white);
-    max-width: 600px;
+    max-width: 650px;
     margin-bottom: 2rem;
 }
 
@@ -19,18 +19,18 @@
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: clamp(24px, 5vw, 60px);
     max-width: 1200px;
     width: 100%;
-    margin-bottom: 120px;
+    margin-bottom: clamp(80px, 10vw, 140px);
 }
 
-/* Project Card Style */
+/* Project Card */
 .project-card {
     background: rgba(46, 56, 50, 0.85);
     border: 1px solid rgba(79, 163, 165, 0.25);
     border-radius: 16px;
-    padding: 18px;
+    padding: clamp(16px, 3vw, 24px);
     box-shadow: 0 6px 24px rgba(79, 163, 165, 0.08);
     opacity: 0;
     transform: translateY(6px);
@@ -38,7 +38,7 @@
     transition: transform 0.35s ease, box-shadow 0.3s ease, opacity 0.6s ease;
     display: flex;
     align-items: stretch;
-    gap: 20px;
+    gap: clamp(16px, 3vw, 24px);
 }
 
 /* Visible cards fade in and scale */
@@ -68,13 +68,13 @@
 .project-card h3 {
     color: var(--teal);
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 
 .project-card p {
     color: var(--off-white);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: clamp(0.95rem, 1.5vw, 1rem);
+    line-height: 1.7;
     margin-bottom: 15px;
 }
 
@@ -91,7 +91,7 @@
     color: var(--off-white);
     border-radius: 10px;
     padding: 5px 12px;
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
     text-transform: uppercase;
     letter-spacing: 0.4px;
     transition: transform 0.3s ease, background 0.3s ease;
@@ -109,15 +109,15 @@
     box-shadow: 0 12px 40px rgba(79, 163, 165, 0.14);
 }
 
-/* Project card layout: text left, image right */
+/* Layout: text left, image right */
 .project-body {
     flex: 1 1 60%;
     padding: 16px 20px;
 }
 
 .project-image {
-    width: 320px;
-    flex: 0 0 320px;
+    width: clamp(240px, 30vw, 360px);
+    flex: 0 0 clamp(240px, 30vw, 360px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,7 +132,7 @@
     display: block;
 }
 
-/* Fading effect at the left edge of the image to blend into the card */
+/* Blend fade on image edge */
 .project-image::before {
     content: "";
     position: absolute;
@@ -141,20 +141,36 @@
     bottom: 0;
     width: 80px;
     pointer-events: none;
-    background: linear-gradient(90deg, rgba(46,56,50,0.9), rgba(46,56,50,0));
+    background: linear-gradient(90deg, rgba(46, 56, 50, 0.9), rgba(46, 56, 50, 0));
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
     .projects-grid {
-        gap: 20px;
+        gap: 32px;
     }
 
     .project-card {
-        padding: 14px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    #projects {
+        padding: 60px 16px 100px;
+    }
+
+    .project-card {
+        padding: 16px;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project-body {
+        padding: 12px 0;
     }
 
     .project-image {
@@ -165,5 +181,28 @@
 
     .project-image::before {
         display: none;
+    }
+
+    .project-tags {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        padding: 14px;
+    }
+
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .project-card p {
+        font-size: 0.9rem;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+        padding: 4px 10px;
     }
 }

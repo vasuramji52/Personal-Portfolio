@@ -28,7 +28,7 @@ const Contact = ({ id }) => {
 
     return (
         <section id={id} ref={sectionRef} className={`section ${visible ? 'fade-in' : 'fade-out'}`}>
-            <h2 className="glow-text">Contact</h2>
+            <h2 className="glow-text">Let's Connect!</h2>
 
             <div className="contact-container">
                 <div className="contact-form">

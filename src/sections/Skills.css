@@ -3,26 +3,26 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
-    padding: 100px 20px;
+    padding: clamp(60px, 8vw, 100px) 20px;
     min-height: 100vh;
 }
 
 .skills-section-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: clamp(24px, 4vw, 40px);
     max-width: 1000px;
     width: 100%;
     color: var(--off-white);
     margin-top: 40px;
 }
 
-/* --- Category Header --- */
+/* --- Category Card --- */
 .skills-category {
     background: rgba(46, 56, 50, 0.8);
     border: 1px solid rgba(79, 163, 165, 0.3);
     border-radius: 16px;
-    padding: 25px 30px;
+    padding: clamp(20px, 4vw, 30px);
     box-shadow: 0 0 15px rgba(79, 163, 165, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
@@ -33,30 +33,33 @@
     box-shadow: 0 0 25px rgba(79, 163, 165, 0.3);
 }
 
+/* --- Header --- */
 .skills-header {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 .skills-header h3 {
     color: var(--teal);
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
 
 .skills-icon {
     color: var(--old-rose);
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
 }
 
-/* --- Skills List --- */
+/* --- Skill Items --- */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 12px 18px;
     margin-top: 12px;
     padding-left: 5px;
+    justify-content: flex-start;
 }
 
 .skill-item {
@@ -64,7 +67,7 @@
     background-color: rgba(59, 75, 69, 0.7);
     border-radius: 12px;
     padding: 8px 16px;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.05rem);
     color: var(--off-white);
     transition: transform 0.2s ease, background 0.3s ease;
     opacity: 0;
@@ -106,13 +109,50 @@
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* --- 📱 Responsive Design --- */
+@media (max-width: 900px) {
+    #technical-skills {
+        padding: 60px 16px;
+    }
+
+    .skills-section-container {
+        gap: 28px;
+    }
+
     .skills-category {
         padding: 20px;
+        text-align: center;
+    }
+
+    .skills-header {
+        justify-content: center;
+    }
+
+    .skills-list {
+        justify-content: center;
     }
 
     .skill-item {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        padding: 6px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-category {
+        padding: 16px;
+    }
+
+    .skills-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .skill-item {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .skills-list {
+        gap: 10px 12px;
     }
 }

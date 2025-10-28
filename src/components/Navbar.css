@@ -2,7 +2,6 @@
     position: fixed;
     top: 5px;
     width: 100%;
-    /* blend with background */
     background: transparent;
     backdrop-filter: blur(6px);
     display: flex;
@@ -10,6 +9,13 @@
     align-items: center;
     padding: 12px 20px;
     z-index: 100;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add subtle background when scrolled */
+.navbar.scrolled {
+    background: rgba(20, 25, 22, 0.8);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-inner {
@@ -17,29 +23,30 @@
     max-width: 1200px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .logo {
     font-weight: 700;
-    font-size: 1.9rem;
+    font-size: clamp(1.4rem, 2vw, 1.9rem);
     color: var(--off-white);
-    margin-left: 6px;
+    cursor: pointer;
 }
 
+/* Navigation Links */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 36px;
-    margin-left: auto;
+    gap: clamp(20px, 3vw, 36px);
     align-items: center;
+    margin: 0;
 }
 
 .nav-link {
     color: var(--off-white);
     text-decoration: none;
-    font-weight: 500; /* make link text bold */
-    font-size: 1.35rem; 
+    font-weight: 500;
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
     padding-bottom: 6px;
     transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -48,18 +55,64 @@
     color: var(--teal);
 }
 
-/* Active / selected link styling: teal + bold underline */
+/* Active Link */
 .nav-link.active {
     color: var(--teal);
     font-weight: 800;
     border-bottom: 3px solid var(--teal);
+    text-shadow: 0 0 2px rgba(87, 187, 189, 0.6);
 }
 
-/* If you add SVG icons inside links, make them bigger and white */
+/* If you add icons */
 .nav-links svg,
 .nav-links .icon {
     color: var(--off-white);
     font-size: 1.4rem;
     font-weight: 800;
     margin-right: 6px;
+}
+
+/* --- Mobile Menu Button (hamburger) --- */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--off-white);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--teal);
+}
+
+/* --- Mobile Menu --- */
+@media (max-width: 900px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        flex-direction: column;
+        background: rgba(46, 56, 50, 0.95);
+        border: 1px solid rgba(79, 163, 165, 0.25);
+        border-radius: 12px;
+        padding: 20px 30px;
+        gap: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-15px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 }

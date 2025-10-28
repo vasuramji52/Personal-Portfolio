@@ -1,41 +1,44 @@
 .animated-section {
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 420ms cubic-bezier(.2, .9, .2, 1), transform 420ms cubic-bezier(.2, .9, .2, 1);
+    transform: translateY(12px);
+    transition: opacity 0.45s cubic-bezier(.2, .9, .2, 1),
+        transform 0.45s cubic-bezier(.2, .9, .2, 1);
     will-change: opacity, transform;
     backface-visibility: hidden;
-    /* ensure anchor links position content below fixed navbar */
     scroll-margin-top: 88px;
+    /* keeps anchors below navbar */
 }
 
+/* --- Fade in animation --- */
 .animated-section.fade-in {
     opacity: 1 !important;
     transform: translateY(0) scale(1);
-    /* apply pop-up animation for sections */
-    animation: popUp 780ms cubic-bezier(.2,.9,.2,1) both;
+    animation: popUp 0.78s cubic-bezier(.2, .9, .2, 1) both;
 }
 
+/* --- Fade out for smooth exit --- */
 .animated-section.fade-out {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
 }
 
-/* Optional: child elements can be initially hidden to allow staggered reveals */
-.animated-section > * {
+/* --- Staggered child animation (clean reveal) --- */
+.animated-section>* {
     opacity: 0;
     transform: translateY(6px);
-    transition: opacity 360ms ease, transform 360ms ease;
+    transition: opacity 0.36s ease, transform 0.36s ease;
 }
 
-.animated-section.fade-in > * {
+.animated-section.fade-in>* {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* --- Pop-up keyframes --- */
 @keyframes popUp {
     0% {
         opacity: 0;
-        transform: translateY(14px) scale(0.98);
+        transform: translateY(16px) scale(0.97);
     }
 
     60% {
@@ -46,5 +49,30 @@
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+/* --- 💡 Mobile Optimization --- */
+@media (max-width: 768px) {
+    .animated-section {
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        scroll-margin-top: 72px;
+        /* smaller offset for mobile navbar */
+    }
+
+    .animated-section.fade-in {
+        animation: popUpMobile 0.7s ease both;
+    }
+
+    @keyframes popUpMobile {
+        0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     }
 }

@@ -27,9 +27,8 @@ const Home = ({ id }) => {
                     />
 
                     <p>
-                        I’m a Computer Science student with a passion for full-stack development,
-                        and machine learning. I love building projects that solve real-world problems
-                        and enhance user experiences.
+                        I’m a Computer Science student driven by curiosity and the thrill of solving problems through technology.
+                        I possess a strong focus in full-stack development, applied AI, and machine learning and I enjoy creating software that drives innovation and leaves a lasting impact.
                     </p>
 
                     <div className="social-buttons">

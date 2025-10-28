@@ -5,24 +5,32 @@ import MentorImg from '../assets/MentorProfile.jpg';
 
 const projects = [
     {
-        name: 'Project One',
+        name: '3D CNN Gesture Recognition Research',
         description: 'A web app that does amazing things.',
         tags: ['React', 'API', 'CSS'],
         image: OutdoorsImg,
     },
     {
-        name: 'Project Two',
+        name: 'MixerAI',
         description: 'A machine learning project that predicts outcomes efficiently.',
         tags: ['Python', 'TensorFlow', 'Data Science'],
         image: MentorImg,
     },
     {
-        name: 'Project Three',
+        name: 'Flashcard Wizard',
         description: 'A full-stack application with advanced API integration.',
         tags: ['Node.js', 'Express', 'MongoDB', 'React.js'],
         image: OutdoorsImg,
     },
+
+    {
+        name: 'N-Knight Problem Research Paper',
+        description: 'A responsive portfolio website to showcase projects and skills.',
+        tags: ['React.js', 'CSS', 'Vercel'],
+        image: MentorImg,
+    },
 ];
+
 
 const Projects = () => {
     const projectRefs = useRef([]);
