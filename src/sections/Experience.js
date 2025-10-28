@@ -11,9 +11,9 @@ const experiences = [
         location: "Orlando, FL",
         type: "Part-time",
         bullets: [
-            "Mentor 12 first-year Computer Science students, providing academic and technical guidance to strengthen their programming foundations.",
-            "Offer individualized mentorship on research involvement, internships, and professional development opportunities.",
-            "Foster inclusivity and encourage collaboration for Women in STEM fields."
+            "Mentoring 12 first-year Computer Science students, providing academic and technical guidance to strengthen their programming foundations.",
+            "Offering individualized mentorship on research involvement, internships, and professional development opportunities.",
+            "Fostering inclusivity and encouraging collaboration for Women in STEM fields."
         ],
         icon: <FaGraduationCap />,
         skills: ["Mentorship", "Leadership", "Communication"],
@@ -25,7 +25,7 @@ const experiences = [
         location: "Orlando, FL",
         type: "Internship",
         bullets: [
-            "Promoted development for an internal tool by mapping dependencies across enterprise systems by analyzing 3,000+ API data points using Splunk and Anypoint Studio.",
+            "Promoted development for an internal tool by mapping dependencies across enterprise systems and analyzing 3,000+ API data points using Splunk and Anypoint Studio.",
             "Assisted in the ROSA migration to AWS, validating integrations and supporting cloud deployment configurations.",
             "Accelerated Identity Management and MFA initiatives by validating API endpoints in Postman and Anypoint Studio, creating 8 Jira stories to streamline Agile sprint delivery."
         ],
@@ -41,7 +41,7 @@ const experiences = [
         bullets: [
             "Optimized a 3D Convolutional Neural Network for HD-sEMG gesture recognition across 2.86 million trainable parameters, enabling smoother and more responsive prosthetic control.",
             "Reduced inference latency per batch by 51.6% while maintaining an F1-score over 0.95 by refining convolutional layers, applying max pooling, and tuning hyperparameters, effectively balancing latency–accuracy trade-offs.",
-            "Ensured model robustness and consistency across diverse subject datasets by applying K-fold Cross-Validation, Leave-One-Out Cross Validation, and pruning techniques, strengthening generalization and reliability."
+            "Ensured model robustness and consistency across diverse subject datasets by applying K-fold Cross-Validation and pruning techniques, strengthening generalization and reliability."
         ],
         icon: <FaGraduationCap />,
         skills: ["PyTorch", "TensorFlow", "Deep Learning", "3D CNNs", "Model Optimization"],
