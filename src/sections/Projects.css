@@ -7,41 +7,41 @@
     min-height: 100vh;
 }
 
+/* --- Intro Text --- */
 .project-intro {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
     font-weight: 300;
     color: var(--off-white);
     max-width: 650px;
-    margin-bottom: 2rem;
+    margin: 40px auto;
 }
 
-/* Grid layout */
+/* --- Grid layout --- */
 .projects-grid {
     display: flex;
     flex-direction: column;
     gap: clamp(24px, 5vw, 60px);
     max-width: 1200px;
     width: 100%;
-    margin-bottom: clamp(80px, 10vw, 140px);
+    margin: clamp(40px, 5vw, 100px) auto;
 }
 
-/* Project Card */
+/* --- Project Card --- */
 .project-card {
-    background: rgba(46, 56, 50, 0.85);
+    background: rgba(46, 56, 50, 0.9);
     border: 1px solid rgba(79, 163, 165, 0.25);
     border-radius: 16px;
     padding: clamp(16px, 3vw, 24px);
     box-shadow: 0 6px 24px rgba(79, 163, 165, 0.08);
     opacity: 0;
     transform: translateY(6px);
-    transform-origin: center;
     transition: transform 0.35s ease, box-shadow 0.3s ease, opacity 0.6s ease;
     display: flex;
     align-items: stretch;
+    justify-content: space-between;
     gap: clamp(16px, 3vw, 24px);
 }
 
-/* Visible cards fade in and scale */
 .project-card.visible {
     opacity: 1;
     animation: fadePop 0.8s ease forwards;
@@ -50,21 +50,21 @@
 @keyframes fadePop {
     0% {
         opacity: 0;
-        transform: scale(0.85);
+        transform: scale(0.9);
     }
 
     60% {
         opacity: 1;
-        transform: scale(1.08);
+        transform: scale(1.05);
     }
 
     100% {
         opacity: 1;
-        transform: scale(1.02);
+        transform: scale(1);
     }
 }
 
-/* Text inside cards */
+/* --- Text content --- */
 .project-card h3 {
     color: var(--teal);
     margin-bottom: 10px;
@@ -78,7 +78,7 @@
     margin-bottom: 15px;
 }
 
-/* Tags */
+/* --- Tags --- */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -98,99 +98,128 @@
 }
 
 .tag:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
     background: linear-gradient(90deg, var(--teal), var(--old-rose));
     color: var(--charcoal);
 }
 
-/* Hover lift */
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(79, 163, 165, 0.14);
+/* --- Buttons for code/PDF links --- */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
 }
 
-/* Layout: text left, image right */
+.project-btn {
+    background: linear-gradient(90deg, var(--teal), var(--old-rose));
+    color: var(--charcoal);
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.project-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(79, 163, 165, 0.3);
+    background: linear-gradient(90deg, var(--old-rose), var(--teal));
+}
+
+/* --- Layout: text left, image right --- */
 .project-body {
     flex: 1 1 60%;
     padding: 16px 20px;
+    text-align: left;
 }
 
 .project-image {
-    width: clamp(240px, 30vw, 360px);
-    flex: 0 0 clamp(240px, 30vw, 360px);
+    width: clamp(240px, 35vw, 360px);
+    flex: 0 0 clamp(240px, 35vw, 360px);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
     border-radius: 12px;
-    display: block;
 }
 
-/* Blend fade on image edge */
-.project-image::before {
-    content: "";
+/* --- Subtle zoom on hover --- */
+.project-image:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Overlay effect for clickable preview --- */
+.image-overlay {
     position: absolute;
-    left: -40px;
     top: 0;
-    bottom: 0;
-    width: 80px;
-    pointer-events: none;
-    background: linear-gradient(90deg, rgba(46, 56, 50, 0.9), rgba(46, 56, 50, 0));
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 30, 25, 0.6);
+    color: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+    font-size: 1.05rem;
 }
 
-/* 📱 Responsive Design */
+.project-image:hover .image-overlay {
+    opacity: 1;
+}
+
+/* --- Responsive: tablets --- */
 @media (max-width: 1024px) {
-    .projects-grid {
-        gap: 32px;
-    }
-
     .project-card {
-        gap: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    #projects {
-        padding: 60px 16px 100px;
-    }
-
-    .project-card {
-        padding: 16px;
         flex-direction: column;
-        align-items: center;
         text-align: center;
+        align-items: center;
+        padding: 20px;
     }
 
     .project-body {
         padding: 12px 0;
-    }
-
-    .project-image {
-        width: 100%;
-        flex: 0 0 auto;
-        order: -1;
-    }
-
-    .project-image::before {
-        display: none;
+        text-align: center;
     }
 
     .project-tags {
         justify-content: center;
     }
+
+    .project-links {
+        justify-content: center;
+    }
+
+    .project-image {
+        width: 100%;
+        max-width: 500px;
+        order: -1;
+    }
 }
 
-@media (max-width: 480px) {
+/* --- Responsive: mobile phones --- */
+@media (max-width: 600px) {
+    #projects {
+        padding: 40px 14px 80px;
+    }
+
     .project-card {
-        padding: 14px;
+        gap: 12px;
+        padding: 16px;
+        box-shadow: 0 4px 16px rgba(79, 163, 165, 0.1);
     }
 
     .project-card h3 {
@@ -201,8 +230,58 @@
         font-size: 0.9rem;
     }
 
+    .project-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .project-btn {
+        width: 80%;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .project-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-overlay {
+        font-size: 0.95rem;
+    }
+
     .tag {
         font-size: 0.8rem;
         padding: 4px 10px;
     }
+}
+
+/* --- Read More button --- */
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 8px 0 12px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: var(--old-rose);
+    text-decoration: underline;
+}
+
+/* --- Expand animation --- */
+.project-description {
+    overflow: hidden;
+    max-height: 4.5em;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.project-description.expanded {
+    max-height: 1000px;
+    /* allow expansion */
 }

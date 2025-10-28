@@ -44,7 +44,7 @@ const skillsData = [
 
 const SkillsSection = () => {
     return (
-        <section className="section">
+        <section>
             <h2 className="glow-text">Technical Skills</h2>
 
             <AnimatedSection stagger>

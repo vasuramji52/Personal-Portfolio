@@ -68,7 +68,7 @@ const sortedExperiences = [...experiences];
 
 const Experience = () => {
     return (
-        <section className="section">
+        <section>
             <h2 className="glow-text">My Experience</h2>
             <div className="timeline">
                 {sortedExperiences.map((exp, index) => (

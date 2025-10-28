@@ -5,9 +5,9 @@ import Resume from '../assets/Resume.pdf';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import Typewriter from '../components/Typewriter';
 
-const Home = ({ id }) => {
+const Home = () => {
     return (
-        <section className="section fade-in" id={id}>
+        <section className="fade-in">
             <div className="about-content">
                 <div className="about-text">
                     <h1 className="glow-text">Hi, I'm Vasupradha!</h1>

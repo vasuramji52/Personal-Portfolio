@@ -13,52 +13,94 @@ import Contact from './sections/Contact';
 import './App.css';
 
 function App() {
-  const sections = ['home', 'skills', 'projects', 'experience', 'contact'];
+  const sections = ['home', 'experience', 'skills', 'projects', 'contact'];
   const [currentSection, setCurrentSection] = useState('home');
 
   useEffect(() => {
-    // Use a slightly lower threshold and a vertical rootMargin so sections
-    // become 'current' when they enter the central portion of the viewport.
+    // Use IntersectionObserver + center-distance heuristic so the "current"
+    // section is chosen as the one nearest the viewport center. This is
+    // more robust than blindly setting the last entry that becomes
+    // intersecting (which can result in flicker when multiple sections
+    // overlap the threshold).
+    console.debug('Initializing section observer for:', sections);
+
+    const computeClosestSection = () => {
+      let closest = null;
+      let minDist = Infinity;
+      const center = window.innerHeight / 2;
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const elCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(elCenter - center);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = id;
+        }
+      });
+      return closest;
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrentSection(entry.target.id);
-          }
+          console.debug(
+            `Observed ${entry.target.id}: isIntersecting=${entry.isIntersecting}, ratio=${entry.intersectionRatio.toFixed(2)}`
+          );
         });
+
+        const closestId = computeClosestSection();
+        if (closestId) {
+          console.debug('Closest section ->', closestId);
+          setCurrentSection(closestId);
+        }
       },
-      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
+      { threshold: [0.1, 0.25, 0.5], rootMargin: '-10% 0px -10% 0px' }
     );
 
     sections.forEach((id) => {
       const el = document.getElementById(id);
+      console.debug(`Observing section ${id}, found: ${!!el}`);
       if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    const onScrollOrResize = () => {
+      const closestId = computeClosestSection();
+      if (closestId) setCurrentSection(closestId);
+    };
+
+    window.addEventListener('scroll', onScrollOrResize);
+    window.addEventListener('resize', onScrollOrResize);
+
+    return () => {
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <div className="app-container">
       <Navbar currentSection={currentSection} />
       <div className="sections-container">
-        <AnimatedSection id="home">
+        <AnimatedSection id="home" className="section">
           <Home />
         </AnimatedSection>
 
-        <AnimatedSection id="experience">
+        <AnimatedSection id="experience" className="section">
           <Experience />
         </AnimatedSection>
 
-        <AnimatedSection id="skills">
+        <AnimatedSection id="skills" className="section">
           <Skills />
         </AnimatedSection>
 
-        <AnimatedSection id="projects">
+        <AnimatedSection id="projects" className="section">
           <Projects />
         </AnimatedSection>
 
-        <AnimatedSection id="contact">
+        <AnimatedSection id="contact" className="section">
           <Contact />
         </AnimatedSection>
       </div>

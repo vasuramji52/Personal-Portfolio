@@ -33,7 +33,7 @@ body {
 }
 
 .section:nth-of-type(even) {
-  background-color: var(--slate); 
+  background-color: var(--charcoal); 
 }
 
 .section:nth-of-type(odd) {
