@@ -9,9 +9,21 @@ import MixerAI from '../assets/MixerAI.png';
 import NKnights from '../assets/NKnights.png';
 import ResearchPoster from '../assets/ResearchPoster.png';
 import N_Knight_Solver from '../assets/N_Knights.c';
+import Atticus from '../assets/Atticus.png';
 
 
 const projects = [
+    {
+        name: 'Atticus (Your Personalized Legal Assistant)',
+        shortDescription:
+            'AI-powered legal assistant using Google’s Gemini API for intelligent legal research and document generation.',
+        description:
+            'My friends and I developed an AI-powered legal assistant utilizing Google’s Gemini API to generate adaptive, context-aware responses for legal research and document composition. We architected backend logic in TypeScript, integrating AWS Cognito authentication, Eleven Labs’ voice bot service, dynamic prompt routing, and secure Gemini–Firebase data pipelines through Cloud Functions. We also enhanced Gemini model performance via prompt-engineering experiments and response-chain optimization, improving reasoning accuracy and consistency across queries.',
+        tags: ['Google Gemini API', 'AWS Cognito', 'Firebase', 'TypeScript', 'Prompt Engineering', 'Hackathon'],
+        image: Atticus, 
+        devpost: 'https://devpost.com/software/atticus',
+    },
+
     {
         name: '3D CNN Gesture Recognition Research',
         shortDescription:
