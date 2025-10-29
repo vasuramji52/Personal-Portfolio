@@ -5,7 +5,7 @@
 
 A fully responsive portfolio website built with React, Next.js, Javascript, and HTML/CSS.
 
-This website reflects my growth through internships, research, and personal projects, and is continuously updated.
+This website reflects my growth through internships, research, and personal projects - and is continuously updated.
 
 🧩 Tech Stack
 	•	Frontend: React.js, Next.js, JavaScript, HTML, CSS
