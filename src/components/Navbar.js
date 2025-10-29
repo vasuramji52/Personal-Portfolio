@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const Navbar = ({ currentSection }) => {
     const links = [
-        { id: 'home', label: 'Home' },
+        { id: 'home', label: 'About' },
         { id: 'experience', label: 'Experience' },
         { id: 'skills', label: 'Skills' },
         { id: 'projects', label: 'Projects' },
