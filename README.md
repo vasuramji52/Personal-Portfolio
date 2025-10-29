@@ -3,7 +3,7 @@
 # Personal Portfolio
 =======
 
-A fully responsive developer portfolio website built with React, Next.js, Javascript, and HTML/CSS.
+A fully responsive portfolio website built with React, Next.js, Javascript, and HTML/CSS.
 
 This website reflects my growth through internships, research, and personal projects, and is continuously updated.
 
