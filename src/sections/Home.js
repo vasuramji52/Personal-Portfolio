@@ -15,10 +15,9 @@ const Home = () => {
                         words={[
                             'Aspiring Software Engineer',
                             'Computer Science Student',
-                            'ML Enthusiast',
+                            'Full-Stack & AI/ML Developer',
+                            'AWS Certified Cloud Practitioner',
                             'Leader & Team Player',
-                            'Bharatnatyam Dancer',
-                            'Reader & Writer',
                             'Innovator',
                         ]}
                         typingSpeed={70}
