@@ -19,6 +19,8 @@ const Home = () => {
                             'AWS Certified Cloud Practitioner',
                             'Leader & Team Player',
                             'Innovator',
+                            'Reader & Writer',
+                            'Lifelong Learner',
                         ]}
                         typingSpeed={70}
                         deletingSpeed={40}
