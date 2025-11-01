@@ -24,63 +24,71 @@
   --accent-color: var(--teal);
 }
 
+/* Global mobile improvements */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .section:nth-of-type(even) {
-  background-color: var(--charcoal);
+  background-color: var(--charcoal); 
 }
 
 .section:nth-of-type(odd) {
   background-color: var(--charcoal);
 }
 
-#root {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1440px;
-  margin: 0 auto;
-  overflow-x: hidden;
 }
 
 .sections-container {
   scroll-behavior: smooth;
-  width: 100%;
 }
 
 .section {
-  min-height: 100vh;
-  padding: 80px 24px;
+  min-height: 50vh;
+  padding: 100px 40px 60px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
   margin: 0;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px 40px 20px;
+    min-height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 16px 30px 16px;
+  }
 }
 
 .section + .section {
-  margin-top: 0; /* Remove gap since we're using full height sections */
+  margin-top: 60px; /* uniform gap between all sections */
 }
 
 /* Animations */

@@ -1,0 +1,63 @@
+{
+  "project_name": "Personal-Portfolio",
+  "created_date": "2025-11-01T02:43:59Z",
+  "current_phase": 1,
+  "phases": {
+    "1": {
+      "name": "Requirements Gathering & Concept Definition",
+      "status": "in_progress",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "2": {
+      "name": "High-Level Design & Architecture",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "3": {
+      "name": "Detailed Design & Component Planning",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "4": {
+      "name": "Implementation Planning & Setup",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "5": {
+      "name": "Development & Coding",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "6": {
+      "name": "Testing & Quality Assurance",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "7": {
+      "name": "Deployment & Release",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    },
+    "8": {
+      "name": "Maintenance & Enhancement",
+      "status": "pending",
+      "decisions": [],
+      "completed_date": null,
+      "documentation_generated": false
+    }
+  }
+}

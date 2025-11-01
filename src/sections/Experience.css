@@ -183,64 +183,94 @@
     }
 
     .timeline::before {
-        left: 30px;
+        left: 20px;
+        width: 4px;
     }
 
     .timeline-item {
         flex-direction: row;
+        margin: 30px 0;
+        margin-left: 0;
         align-items: flex-start;
-        margin: 32px 0;
-        gap: 20px;
+        gap: 0;
+        position: relative;
     }
 
     .timeline-icon {
-        position: relative;
-        left: 0;
-        top: 0;
-        transform: none;
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
-        font-size: 18px;
-        margin-left: 8px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        z-index: 3;
+        margin: 0;
     }
 
     .timeline-content {
         flex: 1;
-        max-width: 100%;
-        width: calc(100% - 70px);
-        margin: 0;
+        max-width: none;
+        width: calc(100% - 60px);
+        margin-left: 60px;
+        margin-right: 0;
         padding: 20px;
+        position: relative;
     }
 
     .timeline-item:nth-child(even) .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content {
-        margin: 0;
+        margin-left: 60px;
+        margin-right: 0;
         text-align: left;
     }
 
+    /* Reset desktop positioning for mobile */
     .timeline-item:nth-child(odd) .timeline-icon,
     .timeline-item:nth-child(even) .timeline-icon {
-        left: 0;
-        margin: 0;
-        margin-left: 8px;
+        left: 20px;
+        right: unset;
+        margin-left: 0;
+        margin-right: 0;
+        transform: translateX(-50%);
     }
 
     .timeline-bullets {
-        margin-left: 20px;
+        margin-left: 16px;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .timeline-content {
-        padding: 16px;
+    #experience {
+        padding: 40px 12px;
+    }
+
+    .timeline::before {
+        left: 16px;
     }
 
     .timeline-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 16px;
+        left: 16px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon,
+    .timeline-item:nth-child(even) .timeline-icon {
+        left: 16px;
+        right: unset;
+        margin-left: 0;
+        margin-right: 0;
+        transform: translateX(-50%);
+    }
+
+    .timeline-content {
+        width: calc(100% - 48px);
+        margin-left: 48px;
+        padding: 16px;
     }
 
     .timeline-year {
@@ -249,6 +279,7 @@
 
     .timeline-bullets {
         font-size: 0.95rem;
+        margin-left: 12px;
     }
 
     .skill-tag {

@@ -5,9 +5,7 @@
   font-weight: 600;
   color: var(--off-white);
   font-size: clamp(1.2rem, 4vw, 2.05rem);
-  width: 100%;
-  max-width: 800px;
-  margin: 0.5rem 0;
+  line-height: 1.3;
 }
 
 .typewriter-text {
@@ -34,4 +32,24 @@
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    line-height: 1.4;
+  }
+  
+  .typewriter-text {
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .typewriter {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+  }
 }
