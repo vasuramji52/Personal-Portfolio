@@ -13,13 +13,13 @@ const Home = () => {
                     <h1 className="glow-text">Hi, I'm Vasupradha!</h1>
                     <Typewriter
                         words={[
-                            'Software Engineer',
-                            'CS Student',
-                            'Full-Stack Developer',
-                            'AI/ML Developer',
-                            'AWS Certified',
-                            'Team Leader',
+                            'Aspiring Software Engineer',
+                            'Computer Science Student',
+                            'Full-Stack & AI/ML Developer',
+                            'AWS Certified Cloud Practitioner',
+                            'Leader & Team Player',
                             'Innovator',
+                            'Reader & Writer',
                             'Lifelong Learner',
                         ]}
                         typingSpeed={70}
