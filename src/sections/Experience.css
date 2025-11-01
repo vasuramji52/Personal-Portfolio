@@ -183,41 +183,47 @@
     }
 
     .timeline::before {
-        left: 24px;
+        left: 30px;
     }
 
     .timeline-item {
-        flex-direction: column;
-        /* Reduced margin to save space, but still allowing room for the icon */
-        margin-left: 30px;
+        flex-direction: row;
         align-items: flex-start;
-        /* Removed the gap property for column layout on mobile */
-        gap: 16px;
+        margin: 32px 0;
+        gap: 20px;
     }
 
     .timeline-icon {
-        left: 24px;
-        top: 12px;
+        position: relative;
+        left: 0;
+        top: 0;
         transform: none;
-        width: 50px;
-        height: 50px;
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
         font-size: 18px;
+        margin-left: 8px;
     }
 
     .timeline-content {
-        flex: 1 1 100%;
+        flex: 1;
         max-width: 100%;
-        width: 100%;
-        /* Adjusted margin to align content with the timeline line */
-        margin-left: 50px;
+        width: calc(100% - 70px);
+        margin: 0;
         padding: 20px;
     }
 
     .timeline-item:nth-child(even) .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content {
-        /* Ensured both odd/even items follow the single column layout rules */
-        margin-left: 50px;
+        margin: 0;
         text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon,
+    .timeline-item:nth-child(even) .timeline-icon {
+        left: 0;
+        margin: 0;
+        margin-left: 8px;
     }
 
     .timeline-bullets {

@@ -14,7 +14,8 @@
     max-width: 1000px;
     width: 100%;
     color: var(--off-white);
-    margin-top: 40px;
+    margin: 40px auto 0;
+    padding: 0 clamp(16px, 4vw, 32px);
 }
 
 /* --- Category Card --- */
@@ -22,10 +23,12 @@
     background: rgba(46, 56, 50, 0.8);
     border: 1px solid rgba(79, 163, 165, 0.3);
     border-radius: 16px;
-    padding: clamp(20px, 4vw, 30px);
+    padding: clamp(24px, 4vw, 36px);
     box-shadow: 0 0 15px rgba(79, 163, 165, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .skills-category:hover {

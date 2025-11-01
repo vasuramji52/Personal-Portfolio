@@ -1,41 +1,61 @@
 /* 📩 Contact Section */
 #contact {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: clamp(50px, 6vw, 100px) clamp(20px, 8vw, 80px);
-    min-height: calc(100vh - 80px);
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px max(24px, calc((100vw - 1200px) / 2));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .contact-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: clamp(24px, 5vw, 48px);
-    max-width: 1200px;
+    gap: 40px;
+    max-width: 1000px;
     width: 100%;
-    align-items: stretch;
-    margin-top: 25px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 /* 📝 Contact Form */
 .contact-form {
-    flex: 1.2;
+    flex: 1;
     background: rgba(46, 56, 50, 0.95);
     border: 1px solid rgba(79, 163, 165, 0.18);
-    padding: clamp(24px, 4vw, 60px);
+    padding: 32px;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(79, 163, 165, 0.06);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: 100%;
+    gap: 20px;
+    width: 100%;
+    max-width: 580px;
+    margin: 0;
 }
 
 .contact-form h3 {
     color: var(--teal);
     font-size: clamp(1.3rem, 2vw, 1.6rem);
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     letter-spacing: 0.5px;
 }
 
@@ -106,20 +126,24 @@
 
 /* 📬 Contact Details */
 .contact-details {
-    flex: 0.8;
+    flex: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: clamp(16px, 3vw, 24px);
+    gap: 24px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
 }
 
 .contact-card {
     background: rgba(46, 56, 50, 0.95);
     border: 1px solid rgba(79, 163, 165, 0.15);
-    padding: clamp(20px, 3vw, 40px);
+    padding: 28px 24px;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
 .contact-card:hover {
@@ -146,7 +170,7 @@
 /* --- 📱 Responsive Design --- */
 @media (max-width: 900px) {
     #contact {
-        padding: 50px 24px;
+        padding: 60px 24px;
     }
 
     .contact-container {
@@ -156,33 +180,52 @@
     }
 
     .contact-form {
-        width: 100%;
+        max-width: 100%;
         padding: 28px 24px;
     }
 
     .contact-details {
-        width: 100%;
-        gap: 20px;
-    }
-
-    .contact-card {
-        padding: 22px 20px;
+        max-width: 100%;
+        gap: 16px;
     }
 }
 
 @media (max-width: 480px) {
+    #contact {
+        padding: 40px 16px;
+    }
+
+    .contact-container {
+        gap: 24px;
+    }
+
+    .contact-form {
+        padding: 24px 20px;
+    }
+
     .contact-form h3 {
         font-size: 1.2rem;
+        margin-bottom: 16px;
     }
 
     .submit-btn {
-        width: 160px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+
+    .contact-details {
+        gap: 16px;
+    }
+
+    .contact-card {
+        padding: 20px 16px;
     }
 
     .contact-card h4 {
         font-size: 1rem;
+        margin-bottom: 12px;
     }
 
     .contact-info {

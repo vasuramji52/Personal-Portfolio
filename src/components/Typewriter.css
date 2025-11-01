@@ -1,20 +1,21 @@
 .typewriter {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   font-weight: 600;
   color: var(--off-white);
-  font-size: 2.05rem;
+  font-size: clamp(1.2rem, 4vw, 2.05rem);
+  width: 100%;
+  max-width: 800px;
+  margin: 0.5rem 0;
 }
 
 .typewriter-text {
   display: inline-block;
-  /* don't reserve a fixed width on the text element itself — that pushed the
-     cursor to the end of the reserved space. Keep nowrap so the text doesn't
-     wrap while typing. If you want to reserve space to reduce layout shift,
-     apply min-width on the wrapper instead. */
   min-width: 0;
-  white-space: nowrap;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .typewriter-cursor {
