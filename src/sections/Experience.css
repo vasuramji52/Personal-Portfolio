@@ -183,58 +183,71 @@
     }
 
     .timeline::before {
-        left: 24px;
+        left: 20px;
+        width: 4px;
     }
 
     .timeline-item {
-        flex-direction: column;
-        /* Reduced margin to save space, but still allowing room for the icon */
-        margin-left: 30px;
+        flex-direction: row;
+        margin: 30px 0;
+        margin-left: 0;
         align-items: flex-start;
-        /* Removed the gap property for column layout on mobile */
-        gap: 16px;
+        gap: 0;
     }
 
     .timeline-icon {
-        left: 24px;
-        top: 12px;
-        transform: none;
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        z-index: 3;
     }
 
     .timeline-content {
-        flex: 1 1 100%;
-        max-width: 100%;
-        width: 100%;
-        /* Adjusted margin to align content with the timeline line */
-        margin-left: 50px;
+        flex: 1;
+        max-width: none;
+        width: calc(100% - 60px);
+        margin-left: 60px;
+        margin-right: 0;
         padding: 20px;
     }
 
     .timeline-item:nth-child(even) .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content {
-        /* Ensured both odd/even items follow the single column layout rules */
-        margin-left: 50px;
+        margin-left: 60px;
+        margin-right: 0;
         text-align: left;
     }
 
     .timeline-bullets {
-        margin-left: 20px;
+        margin-left: 16px;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .timeline-content {
-        padding: 16px;
+    #experience {
+        padding: 40px 12px;
+    }
+
+    .timeline::before {
+        left: 16px;
     }
 
     .timeline-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 16px;
+        left: 16px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 48px);
+        margin-left: 48px;
+        padding: 16px;
     }
 
     .timeline-year {
@@ -243,6 +256,7 @@
 
     .timeline-bullets {
         font-size: 0.95rem;
+        margin-left: 12px;
     }
 
     .skill-tag {
