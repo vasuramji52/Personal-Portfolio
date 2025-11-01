@@ -58,6 +58,8 @@ h2.glow-text {
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
+    min-height: 44px;
+    cursor: pointer;
 }
 
 .cta-button:hover {

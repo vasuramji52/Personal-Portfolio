@@ -149,10 +149,14 @@
 
     .skill-item {
         font-size: 0.85rem;
-        padding: 6px 12px;
+        padding: 8px 14px;
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .skills-list {
-        gap: 10px 12px;
+        gap: 12px 14px;
     }
 }
